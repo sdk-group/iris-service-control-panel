@@ -10,12 +10,7 @@ class ControlPanel {
 	init() {}
 
 	//API
-	actionTicketCalled({
-		query
-	}) {
-		console.log("TODO: GET ENTRIES", query);
-		return Promise.resolve(true);
-	}
+
 
 }
 

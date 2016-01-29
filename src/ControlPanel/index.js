@@ -1,5 +1,6 @@
+'use strict'
 let events = {
-	control-panel: {}
+	control_panel: {}
 };
 
 let tasks = [];
@@ -11,6 +12,6 @@ module.exports = {
 	tasks: tasks,
 	events: {
 		group: 'control-panel',
-		shorthands: events.control-panel
+		shorthands: events.control_panel
 	}
 };
