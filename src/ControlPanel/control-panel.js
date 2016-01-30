@@ -45,6 +45,9 @@ class ControlPanel {
 					current_time: this.emitter.addTask('queue', {
 						_action: 'current-time'
 					}),
+					services: this.iris.getService({
+						query: {}
+					}),
 					ws: this.emitter.addTask('workstation', {
 							_action: 'occupy',
 							user_id,
