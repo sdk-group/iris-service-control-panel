@@ -62,22 +62,27 @@ class ControlPanel {
 	}
 
 	actionReady({
-		user_id, office
+		user_id,
+		workstation
 	}) {
-		console.log("READY FOR ACTION", user_id, office);
+		// console.log("READY FOR ACTION", user_id, office);
 		//@TODO : multiple offices in chain
-		let org_addr = {};
-		let dept_id = _.find(office, (item) => (item.ldtype == "Department")) || {};
-		dept_id = dept_id.id;
-		if(dept_id) org_addr.department = dept_id;
-		let off_id = _.find(office, (item) => (item.ldtype == "Office")) || {};
-		off_id = off_id.id;
-		if(off_id) org_addr.office = off_id;
-
-		this.emitter.emit('queue.emit.head', {
-			user_id, org_addr
-		})
-		return Promise.resolve(true);
+		return this.emitter.addTask('queue', {
+				_action: 'workstation-organization-data',
+				workstation
+			})
+			.then(({
+				ws,
+				org_addr,
+				org_chain,
+				org_merged
+			}) => {
+				this.emitter.emit('queue.emit.head', {
+					user_id,
+					org_addr
+				});
+				return Promise.resolve(true);
+			});
 	}
 
 }
