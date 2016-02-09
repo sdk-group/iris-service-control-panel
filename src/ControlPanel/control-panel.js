@@ -65,7 +65,7 @@ class ControlPanel {
 		user_id,
 		workstation
 	}) {
-		// console.log("READY FOR ACTION", user_id, office);
+		// console.log("READY FOR ACTION", user_id, workstation);
 		//@TODO : multiple offices in chain
 		return this.emitter.addTask('queue', {
 				_action: 'workstation-organization-data',
@@ -82,6 +82,9 @@ class ControlPanel {
 					org_addr
 				});
 				return Promise.resolve(true);
+			})
+			.catch(err => {
+				console.log("READY CP ERR", err.stack);
 			});
 	}
 
