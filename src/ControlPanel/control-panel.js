@@ -1,7 +1,8 @@
 'use strict'
 
 let emitter = require("global-queue");
-let ServiceApi = require('resource-management-framework').ServiceApi;
+let ServiceApi = require('resource-management-framework')
+	.ServiceApi;
 
 class ControlPanel {
 	constructor() {
@@ -53,7 +54,8 @@ class ControlPanel {
 			}) => {
 				this.emitter.emit('queue.emit.head', {
 					user_id,
-					org_addr
+					org_addr,
+					org_merged
 				});
 				return Promise.resolve(true);
 			})
