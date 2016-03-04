@@ -42,7 +42,7 @@ class ControlPanel {
 	}) {
 		// console.log("READY FOR ACTION", user_id, workstation);
 		//@TODO : multiple offices in chain
-		return this.emitter.addTask('queue', {
+		return this.emitter.addTask('workstation', {
 				_action: 'workstation-organization-data',
 				workstation,
 				embed_schedules: true
