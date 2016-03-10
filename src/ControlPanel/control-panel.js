@@ -47,6 +47,7 @@ class ControlPanel {
 				workstation,
 				embed_schedules: true
 			})
+			.then(res => res[workstation])
 			.then(({
 				ws,
 				org_addr,
