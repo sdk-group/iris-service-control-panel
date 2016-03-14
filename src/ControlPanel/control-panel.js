@@ -21,7 +21,7 @@ class ControlPanel {
 		user_type = "Employee"
 	}) {
 		return Promise.props({
-				ws: this.emitter.addTask('workstation', {
+				workstation: this.emitter.addTask('workstation', {
 						_action: 'occupy',
 						user_id,
 						user_type,
