@@ -1,12 +1,12 @@
 'use strict'
 
-let emitter = require("global-queue");
+
 let ServiceApi = require('resource-management-framework')
 	.ServiceApi;
 
 class ControlPanel {
 	constructor() {
-		this.emitter = emitter;
+		this.emitter = message_bus;
 	}
 
 	init() {
@@ -40,7 +40,7 @@ class ControlPanel {
 		user_id,
 		workstation
 	}) {
-		// console.log("READY FOR ACTION", user_id, workstation);
+		console.log("READY FOR ACTION", user_id, workstation);
 		//@TODO : multiple offices in chain
 		return this.emitter.addTask('workstation', {
 				_action: 'workstation-organization-data',
