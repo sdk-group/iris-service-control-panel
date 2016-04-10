@@ -20,20 +20,18 @@ class ControlPanel {
 		user_id,
 		user_type = "Employee"
 	}) {
+		console.log("BTSTRP");
 		return Promise.props({
-				workstation: this.emitter.addTask('workstation', {
-						_action: 'occupy',
-						user_id,
-						user_type,
-						workstation
-					})
-					.then((res) => {
-						return res.workstation;
-					})
-			})
-			.catch(err => {
-				console.log("CP BTSTRP ERR", err.stack);
-			});
+			workstation: this.emitter.addTask('workstation', {
+					_action: 'occupy',
+					user_id,
+					user_type,
+					workstation
+				})
+				.then((res) => {
+					return res.workstation;
+				})
+		});
 	}
 
 	actionReady({
@@ -60,9 +58,6 @@ class ControlPanel {
 					org_merged
 				});
 				return Promise.resolve(true);
-			})
-			.catch(err => {
-				console.log("READY CP ERR", err.stack);
 			});
 	}
 
