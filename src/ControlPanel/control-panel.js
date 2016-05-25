@@ -20,7 +20,6 @@ class ControlPanel {
 		user_id,
 		user_type = "Employee"
 	}) {
-		console.log("BTSTRP");
 		return Promise.props({
 			workstation: this.emitter.addTask('workstation', {
 					_action: 'occupy',
@@ -52,7 +51,7 @@ class ControlPanel {
 				org_chain,
 				org_merged
 			}) => {
-				this.emitter.emit('queue.emit.head', {
+				this.emitter.command('queue.emit.head', {
 					user_id,
 					org_addr,
 					org_merged
