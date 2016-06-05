@@ -27,9 +27,7 @@ class ControlPanel {
 					user_type,
 					workstation
 				})
-				.then((res) => {
-					return res.workstation;
-				})
+				.then((res) => res.workstation);
 		});
 	}
 
