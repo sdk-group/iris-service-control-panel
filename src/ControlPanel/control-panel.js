@@ -20,14 +20,11 @@ class ControlPanel {
 		user_id,
 		user_type = "Employee"
 	}) {
-		return Promise.props({
-			workstation: this.emitter.addTask('workstation', {
-					_action: 'occupy',
-					user_id,
-					user_type,
-					workstation
-				})
-				.then((res) => res.workstation);
+		return this.emitter.addTask('workstation', {
+			_action: 'occupy',
+			user_id,
+			user_type,
+			workstation
 		});
 	}
 
