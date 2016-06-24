@@ -48,6 +48,7 @@ class ControlPanel {
 			}) => {
 				this.emitter.command('queue.emit.head', {
 					user_id,
+					workstation,
 					org_addr,
 					org_merged
 				});
