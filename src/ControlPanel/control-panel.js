@@ -35,22 +35,15 @@ class ControlPanel {
 		console.log("READY FOR ACTION", user_id, workstation);
 		//@TODO : multiple offices in chain
 		return this.emitter.addTask('workstation', {
-				_action: 'workstation-organization-data',
-				workstation,
-				embed_schedules: true
+				_action: 'by-id',
+				workstation: workstation
 			})
 			.then(res => res[workstation])
-			.then(({
-				ws,
-				org_addr,
-				org_chain,
-				org_merged
-			}) => {
+			.then((ws) => {
 				this.emitter.command('queue.emit.head', {
-					user_id,
-					workstation,
-					org_addr,
-					org_merged
+					operator: user_id,
+					workstation: workstation,
+					organization: ws.attached_to
 				});
 				return Promise.resolve(true);
 			});
