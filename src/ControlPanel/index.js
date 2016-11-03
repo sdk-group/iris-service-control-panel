@@ -7,6 +7,7 @@ let tasks = [];
 
 module.exports = {
 	module: require('./control-panel.js'),
+	name: 'control-panel',
 	permissions: [],
 	exposed: true,
 	tasks: tasks,
